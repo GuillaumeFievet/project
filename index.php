@@ -10,16 +10,19 @@ include("header.php");
   <div id="responsive-menu">
     <div class="top-bar-left">
       <ul class="dropdown menu" data-dropdown-menu>
+        <li><a href="#">home</a></li>
         <li>
-          <a href="#">One</a>
+          <a href="#">Catégories</a>
           <ul class="menu vertical">
-            <li><a href="#">One</a></li>
-            <li><a href="#">Two</a></li>
-            <li><a href="#">Three</a></li>
+            <?php 
+            $sqlimportcat = "(SELECT CAT1 as categories FROM VIDEOS) UNION (SELECT CAT2 FROM VIDEOS where CAT2 != '' AND CAT2 NOT IN (SELECT CAT1 FROM VIDEOS)) ORDER BY categories ASC";
+            $resultimportcat = mysqli_query($conn,$sqlimportcat);
+            while($row = mysqli_fetch_array($resultimportcat)) {
+              echo "<li><a href='categories?".$row['categories']."'>".$row['categories']."</a></li>";
+            }
+            ?>
           </ul>
         </li>
-        <li><a href="#">Two</a></li>
-        <li><a href="#">Three</a></li>
       </ul>
     </div>
     <div class="top-bar-right">

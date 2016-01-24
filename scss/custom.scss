@@ -1,0 +1,22 @@
+//barre de menus
+.top-bar{position:relative;
+	.dropdown.menu{text-transform:uppercase;
+		.submenu{width:100%;text-transform:lowercase;
+			> li{width:20%;display:inline-block;
+				a:hover{text-decoration:underline;transition:1s all;}
+			}
+		} 
+	}
+}
+
+@media screen and(max-width:560px){
+	.top-bar .dropdown.menu .submenu > li{width:25%;}
+}
+
+@media screen and(max-width:480px){
+	.top-bar .dropdown.menu .submenu > li{width:33%;}
+}
+
+@media screen and(max-width:360px){
+	.top-bar .dropdown.menu .submenu > li{width:50%;}
+}

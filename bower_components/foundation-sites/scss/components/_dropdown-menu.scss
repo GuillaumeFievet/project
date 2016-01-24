@@ -25,8 +25,6 @@ $dropdown-border: 1px solid $medium-gray !default;
 @mixin foundation-dropdown-menu {
   .dropdown.menu {
     .has-submenu {
-      position: relative;
-
       a::after {
         float: right;
         margin-top: 3px;
@@ -80,7 +78,6 @@ $dropdown-border: 1px solid $medium-gray !default;
 
       > li {
         width: 100%;
-        > a{color:red;}
       }
 
       &.first-sub {

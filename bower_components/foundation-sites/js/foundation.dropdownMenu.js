@@ -81,7 +81,7 @@
      * @option
      * @example 500
      */
-    closingTime: 500,
+    closingTime: 0,
     // wrapOnKeys: true,
     /**
      * Position of the menu relative to what direction the submenus should open. Handled by JS.

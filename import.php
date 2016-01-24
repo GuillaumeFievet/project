@@ -1,5 +1,4 @@
 <?php
-include('connect.php');
 include('header.php');
 //variables
 $nb = 0;
@@ -31,7 +30,7 @@ foreach( $videos as $video )
 	$url = $url->item(0)->nodeValue;
 	$flv = $video->getElementsByTagName( "flv" );
 	$flv = $flv->item(0)->nodeValue;
-	$url = urlencode($url+$flv);
+	$url = urlencode($url.$flv);
 	
 	$thumb = $video->getElementsByTagName( "screen_url" );
 	$thumb = urlencode($thumb->item(0)->nodeValue);
@@ -43,6 +42,7 @@ foreach( $videos as $video )
 	$votes = 0;
 	$vues = 0;
 	$ajout = date('Y-m-d H:i:s');
+
 	//on calcule le nombre de video ajoutées
 	$sqlajout = "SELECT COUNT(*) as nbajout FROM VIDEOS WHERE ID = '$id'"; 
 	$resultajout = mysqli_query($conn,$sqlajout);
