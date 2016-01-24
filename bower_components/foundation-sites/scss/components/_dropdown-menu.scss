@@ -41,7 +41,7 @@ $dropdown-border: 1px solid $medium-gray !default;
         &.is-down-arrow > a::after {
           @include css-triangle(5px, $anchor-color, down);
           position: absolute;
-          top: 12px;
+          top: 15px;
           right: 5px;
         }
         &.is-left-arrow > a::after {
@@ -80,6 +80,7 @@ $dropdown-border: 1px solid $medium-gray !default;
 
       > li {
         width: 100%;
+        > a{color:red;}
       }
 
       &.first-sub {

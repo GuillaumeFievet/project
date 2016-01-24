@@ -33,7 +33,7 @@ $topbar-input-width: 200px !default;
 
   input {
     width: $topbar-input-width;
-    margin-#{$global-right}: 1rem;
+    margin-#{$global-right}: 0.4rem;
   }
 }
 
@@ -41,6 +41,7 @@ $topbar-input-width: 200px !default;
   // Top bar container
   .top-bar {
     @include top-bar-container;
+    & li > a {color:$white;}
   }
 
   // Sub-sections

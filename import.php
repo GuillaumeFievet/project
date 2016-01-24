@@ -1,5 +1,6 @@
 <?php
 include('connect.php');
+include('header.php');
 //variables
 $nb = 0;
 $newvideo = 0;
@@ -55,9 +56,6 @@ foreach( $videos as $video )
 	$nb = $nb + 1;
 }
 
-echo "nombre ajoutées : ",$nb-$newvideo,"<br>";
-echo "nombre de vidéos au total : ",$nb,"<br>";
-
 // on ajoute les statistiques 
 $sqlinsertstat = "INSERT INTO DATAVIDEO (DATE,NBVIDEO) VALUES ('$datadate','$nb')";
 $sqlstat = "SELECT COUNT(DATE) as nbdate FROM DATAVIDEO WHERE DATE= '$datadate'"; 
@@ -81,4 +79,42 @@ $resultmonth = mysqli_query($conn,$sqlmonth);
 // on sort les tableau en json	
 $label = json_encode($month);
 $data = json_encode($avg);
+include('footer.php');
 ?>
+<script src="js/Chart.js"></script>
+<div class="row">
+	<div class="small-12 columns text-center">
+		<?php 
+			echo "nombre de vidéos ajoutées : ",$nb-$newvideo,"<br>";
+			echo "nombre de vidéos au total : ",$nb;
+		?>
+	</div>
+	<div class="small-12 columns">
+		<canvas id="canvas" height="450" width="600"></canvas>
+	</div>
+</div>
+<script>
+	var lineChartData = {
+		labels : <?php echo $label ?>,
+		datasets : [
+			{
+				label: "Nombre de vidéos ajoutées",
+				fillColor : "rgba(151,187,205,0.2)",
+				strokeColor : "rgba(151,187,205,1)",
+				pointColor : "rgba(151,187,205,1)",
+				pointStrokeColor : "#fff",
+				pointHighlightFill : "#fff",
+				pointHighlightStroke : "rgba(151,187,205,1)",
+				data : <?php echo $data ?>
+			},
+		]
+	}
+	window.onload = function(){
+		var ctx = document.getElementById("canvas").getContext("2d");
+		window.myLine = new Chart(ctx).Line(lineChartData, {
+			responsive: true,
+			scaleGridLineColor : "rgba(255,255,255,0.5)",
+			scaleLineColor : "rgba(255,255,255,0.5)"
+		});
+	}
+</script>
