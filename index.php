@@ -1,6 +1,8 @@
 <?php
 include("header.php");
+include("functions.php");
 ?>
+
 <div class="top-bar">
   <div class="top-bar-title">
     <span data-responsive-toggle="responsive-menu" data-hide-for="medium">
@@ -14,12 +16,8 @@ include("header.php");
         <li>
           <a href="#">Catégories</a>
           <ul class="menu vertical">
-            <?php 
-            $sqlimportcat = "(SELECT CAT1 as categories FROM VIDEOS) UNION (SELECT CAT2 FROM VIDEOS where CAT2 != '' AND CAT2 NOT IN (SELECT CAT1 FROM VIDEOS)) ORDER BY categories ASC";
-            $resultimportcat = mysqli_query($conn,$sqlimportcat);
-            while($row = mysqli_fetch_array($resultimportcat)) {
-              echo "<li><a href='categorie.php?cat=".$row['categories']."'>".$row['categories']."</a></li>";
-            }
+            <?php
+            echo categorie($conn);
             ?>
           </ul>
         </li>
