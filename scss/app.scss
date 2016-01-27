@@ -1,19 +1,21 @@
 @charset 'utf-8';
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,600);
 
 @import 'settings';
-@import 'custom';
 @import 'foundation';
 @import 'motion-ui';
+@import 'custom';
 
 @include foundation-global-styles;
-@include foundation-grid
+@include foundation-grid;
 @include foundation-typography;
 @include foundation-button;
 @include foundation-forms;
 @include foundation-visibility-classes;
 @include foundation-float-classes;
-//@include foundation-accordion;
-//@include foundation-badge;
+@include foundation-accordion;
+@include foundation-accordion-menu;
+@include foundation-badge;
 @include foundation-breadcrumbs;
 @include foundation-button-group;
 @include foundation-callout;
@@ -26,14 +28,14 @@
 @include foundation-media-object;
 @include foundation-menu;
 @include foundation-off-canvas;
-//@include foundation-orbit;
+@include foundation-orbit;
 @include foundation-pagination;
-//@include foundation-progress-bar;
-//@include foundation-slider;
+@include foundation-progress-bar;
+@include foundation-slider;
 @include foundation-sticky;
 @include foundation-reveal;
-//@include foundation-switch;
-//@include foundation-table;
+@include foundation-switch;
+@include foundation-table;
 @include foundation-tabs;
 @include foundation-thumbnail;
 @include foundation-title-bar;
