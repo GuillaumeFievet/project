@@ -1,6 +1,5 @@
 <?php
 include('header.php');
-include('functions.php');
 
 if (isset($_GET['cat']) && strlen($_GET['cat']) < 30 && $_GET['cat'] != ""){
 	$cat = $_GET['cat'];

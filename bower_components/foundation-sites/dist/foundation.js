@@ -3376,7 +3376,7 @@ Foundation.Motion = Motion;
      * @option
      * @example true
      */
-    clickOpen: false,
+    clickOpen: true,
     /**
      * Amount of time to delay closing a submenu on a mouseleave event.
      * @option

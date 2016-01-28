@@ -16,15 +16,15 @@ foreach( $videos as $video )
 	$id = $id->item(0)->nodeValue;
 	
 	$title = $video->getElementsByTagName( "title" );
-	$title = addslashes($title->item(0)->nodeValue);
+	$title = utf8_decode(addslashes($title->item(0)->nodeValue));
 	
 	$resume = $video->getElementsByTagName( "description" );
-	$resume = addslashes($resume->item(0)->nodeValue);
+	$resume = utf8_decode(addslashes($resume->item(0)->nodeValue));
 	
 	$cat = $video->getElementsByTagName( "tags" );
 	$cat =  explode("|",$cat->item(0)->nodeValue);
-	$cat1 = addslashes($cat[1]);
-	$cat2 = addslashes($cat[2]);
+	$cat1 = utf8_decode(addslashes($cat[1]));
+	$cat2 = utf8_decode(addslashes($cat[2]));
 	
 	$url = $video->getElementsByTagName( "clip_url" );
 	$url = $url->item(0)->nodeValue;
