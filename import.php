@@ -23,8 +23,8 @@ foreach( $videos as $video )
 	
 	$cat = $video->getElementsByTagName( "tags" );
 	$cat =  explode("|",$cat->item(0)->nodeValue);
-	$cat1 = utf8_decode(addslashes($cat[1]));
-	$cat2 = utf8_decode(addslashes($cat[2]));
+	$cat1 = addslashes($cat[1]);
+	$cat2 = addslashes($cat[2]);
 	
 	$url = $video->getElementsByTagName( "clip_url" );
 	$url = $url->item(0)->nodeValue;

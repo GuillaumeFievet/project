@@ -24,13 +24,13 @@ function paginate($url, $link, $total, $current, $adj=3) {
 		 * ================================= */
 		if ($current == 2) {
 			// la page courante est la 2, le bouton renvoie donc sur la page 1, remarquez qu'il est inutile de mettre $url{$link}1
-			$pagination .= "<a href=\"{$url}\">◄</a>";
+			$pagination .= "<a class='arrow' href=\"{$url}\">◄</a>";
 		} elseif ($current > 2) {
 			// la page courante est supérieure à 2, le bouton renvoie sur la page dont le numéro est immédiatement inférieur
-			$pagination .= "<a href=\"{$url}{$link}{$prev}\">◄</a>";
+			$pagination .= "<a class='arrow' href=\"{$url}{$link}{$prev}\">◄</a>";
 		} else {
 			// dans tous les autres, cas la page est 1 : désactivation du bouton [précédent]
-			$pagination .= '<span class="inactive">◄</span>';
+			$pagination .= '<span class="arrow inactive">◄</span>';
 		}
  
 		/**
@@ -138,9 +138,9 @@ function paginate($url, $link, $total, $current, $adj=3) {
 		 *  Affichage du bouton [suivant]
 		 * =============================== */
 		if ($current == $total)
-			$pagination .= "<span class=\"inactive\">►</span>\n";
+			$pagination .= "<span class='arrow' class=\"inactive\">►</span>\n";
 		else
-			$pagination .= "<a href=\"{$url}{$link}{$next}\">►</a>\n";
+			$pagination .= "<a class='arrow' href=\"{$url}{$link}{$next}\">►</a>\n";
  
 		// Fermeture de la <div> d'affichage
 		$pagination .= "</div>\n";

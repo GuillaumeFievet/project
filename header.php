@@ -45,3 +45,5 @@ include("functions.php");
 		</div>
 	</div>
 </nav>
+<div id="container">
+	<div class="row">

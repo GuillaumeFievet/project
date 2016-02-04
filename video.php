@@ -7,8 +7,13 @@ if (isset($_GET['vd']) && is_numeric($_GET['vd'])){
 	//on récupère les infos de la video
 	$retourvideo=mysqli_query($conn,"SELECT * FROM VIDEOS WHERE ID = $idvideo"); 
 	while($row = mysqli_fetch_array($retourvideo)){
-	  echo $row['ID'],'<br>';echo $cat = $row['CAT1'];
+	  echo $row['ID'],'<br>';echo $cat = $row['CAT1'];echo $cat2 = $row['CAT2'];
+	  echo '<video class="video-pornation" controls width="1078" height="550" autoplay="1" preload="metadata" style="width: 100%; height: 100%;" src="'.urldecode($row['URL']).'">
+				<source type="video/mp4" src="'.urldecode($row['URL']).'">'.$row['TITLE'].'
+			</video>';
 	}
+
+	
 
 	//on pousse d'autres videos
 	echo "<h2>Nos autres vidéos similaires</h2>";

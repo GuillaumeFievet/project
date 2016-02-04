@@ -1,5 +1,5 @@
 //navbar 
-nav #pornation-menu{position:relative;display:flex;flex-wrap:wrap;flex-direction:row;align-items:center;
+nav #pornation-menu{position:fixed;display:flex;flex-wrap:wrap;flex-direction:row;align-items:center;width:100%;
 	.is-dropdown-submenu-parent{position:inherit;
 		&.is-down-arrow > a::after{top:1.2rem;right:0;}
 	}
@@ -21,6 +21,14 @@ nav #pornation-menu{position:relative;display:flex;flex-wrap:wrap;flex-direction
 	} 
 }
 
+//pagination
+.pagination{margin:10px 0;
+	& .active{background-color:$primary-color;padding:2px 7px;margin:0 2px;@include radius(3px);color:$white;}
+	a{padding:2px 7px;margin:0 2px;background-color:$light-gray;color:$white;@include radius(3px);
+		&.arrow{background:none;}
+	}
+}
+
 @media screen and #{breakpoint(medium down)} {
 	nav #pornation-menu{
   		.menu.vertical > li {width:33%;}
@@ -34,4 +42,18 @@ nav #pornation-menu{position:relative;display:flex;flex-wrap:wrap;flex-direction
   			.menu{float:left;}
   		}
   	}
+}
+
+//container
+#container{width:100%;padding:60px 0 15px 0;}
+
+//page categorie
+#container{
+	& .row{max-width:80rem;
+		& .categorie{display:flex;flex-direction:row;flex-wrap:wrap;}
+		.column{padding-bottom:15px;}
+		& > div a{color:#cccccc;display:inline-block;
+			img{min-height:202px;}
+		} 
+	}
 }
