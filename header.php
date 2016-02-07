@@ -46,4 +46,4 @@ include("functions.php");
 	</div>
 </nav>
 <div id="container">
-	<div class="row">
+	<div class="row" data-equalizer data-equalize-on="medium">
