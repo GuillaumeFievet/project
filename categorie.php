@@ -1,5 +1,7 @@
 <?php
 include('header.php');
+
+echo "<div class='page-cat'>";
 //si categorie dans l'url
 if (isset($_GET['cat']) && strlen($_GET['cat']) < 30 && $_GET['cat'] != ""){
 	$cat = $_GET['cat'];
@@ -24,6 +26,13 @@ if (isset($_GET['cat']) && strlen($_GET['cat']) < 30 && $_GET['cat'] != ""){
 	$sqlpage="SELECT * FROM VIDEOS WHERE CAT1 LIKE '%".$cat."%' OR CAT2 LIKE '%".$cat."%' ORDER BY AJOUT DESC LIMIT $premiereEntree,$videoParPages";
 	//resultats des pages
 	$resultpage = mysqli_query($conn,$sqlpage);
+	//title page 
+	echo "
+	<div class='small-12 columns'>
+		<div class='small-12 columns title'>
+			<h1>".$cat."</h1>
+		</div>
+	</div>";
 
 	//colone de gauche avec les categories
 	echo "<div class='large-2 columns show-for-large allCategories'><ul>",categorie($conn),"</ul></div>";
@@ -34,8 +43,10 @@ if (isset($_GET['cat']) && strlen($_GET['cat']) < 30 && $_GET['cat'] != ""){
 		echo 
 		'<div class="small-12 medium-4 large-3 columns video">
 			<a href="video.php?vd='.$row['ID'].'" data-equalizer-watch>
-				<img src='.urldecode($row['THUMB']).'1.jpg width="270" height="150" alt='.utf8_encode($row['TITLE']).'/>',
-				'<span class="desc">'.utf8_encode($row['TITLE']).'</span>',
+				<span class="thumb">
+					<img src='.urldecode($row['THUMB']).'1.jpg width="270" height="150" alt='.utf8_encode($row['TITLE']).'/>
+				</span>
+				<span class="desc">'.utf8_encode($row['TITLE']).'</span>',
 			'</a>
 		</div>';
 		}
@@ -45,7 +56,13 @@ if (isset($_GET['cat']) && strlen($_GET['cat']) < 30 && $_GET['cat'] != ""){
 	echo paginate("/project/categorie.php?cat=$cat", '&p=', $nombreDePages, $pageActuelle);
 // si pas de categorie dans l'url	
 }else{
-	echo "<h2>nous n'avons pas trouvé votre catégorie :/ trouvez en une autre</h2>",categorie($conn);
+	echo "
+	<div class='small-12 columns not-cat'>
+		<h2>nous n'avons pas trouvé votre catégorie :/<br> trouvez en une autre :</h2>
+		<div class='cats'><ul>",categorie($conn),"</ul></div>
+	</div>";
 }
+
+echo "</div>";
 include('footer.php');
 ?>

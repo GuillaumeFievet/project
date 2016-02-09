@@ -7,4 +7,9 @@ function categorie($bdd){
 		echo "<li><a href='categorie.php?cat=".$row['categories']."' title='".$row['categories']."'>".$row['categories']."</a></li>";
 	}
 }
+
+function vues($bdd,$nbvues,$id){
+	$sqlincrementvues = "UPDATE VIDEOS SET VUES = $nbvues + 1 WHERE id = $id";
+	$resultincrementvues = mysqli_query($bdd,$sqlincrementvues);
+}
 ?>
